@@ -1,0 +1,21 @@
+Agent action log — Public Energy Solutions website (branch: work)
+Format: [UTC timestamp] action
+
+[2026-10-24 20:44] Checked environment: no repo uploaded, no GitHub token in session (read-only anonymous access).
+[2026-10-24 20:44] Tried git ls-remote public-energy-solutions/public-energy-solutions -> credentials required (not accessible).
+[2026-10-24 20:45] Tried clone Scipiont-General/public-energy-solutions -> account does not exist (404).
+[2026-10-24 20:46] Found public repo Scipion-General/public-energy-solutions; cloned to /tmp/public-energy-solutions.
+[2026-10-24 20:46] Created and checked out local branch "work" from main (edab06c, README only).
+[2026-10-24 20:46] Tried git push -u origin work -> failed: no write token in this session.
+[2026-10-24 20:47] Checked toolchain: Node 22.22.0, npm 10.9.4, latest Next.js 16.4.3.
+[2026-10-24 20:47] Scaffolded Next.js (TypeScript, App Router, src/, ESLint) with create-next-app in /tmp/scaffold; copied into repo (kept existing README, removed demo SVGs and page.module.css).
+[2026-10-24 20:48] Read Next.js 16 bundled docs (upgrade guide, route handlers) - cacheComponents enabled by default.
+[2026-10-24 20:48] npm install nodemailer, server-only; dev: vitest, @types/nodemailer, @types/node@^22 (pinned to resolve vitest peer conflict).
+[2026-10-24 20:48] package.json: renamed to public-energy-solutions; added typecheck, test, check scripts.
+[2026-10-24 20:49] Created src/lib/prices/{types,parse,load}.ts - CSV parser with validation, server-side file loader.
+[2026-10-24 20:49] Created src/lib/contact/{validation,mailer}.ts - shared validation, SMTP mailer (env-var config, default recipient contact@public-energy-solutions.com).
+[2026-10-24 20:49] Created API routes src/app/api/contact/route.ts (POST) and src/app/api/prices/route.ts (GET).
+[2026-10-24 20:49] Created data/gas-prices.csv (header only, NO data - no invented prices) and data/README.md (file format docs).
+[2026-10-24 20:50] Created src/content/site.ts (nav, home copy, placeholders) and src/content/gasMarket.ts (sourced educational content, EUR-Lex/ACER/EC/GIE/IEA links).
+[2026-10-24 20:50] Commit cdfbbcd "Scaffold Next.js app, price-file parser, contact validation and API routes".
+[2026-10-24 20:51] Created agent_actions.log (this file), backfilled with all previous actions.
