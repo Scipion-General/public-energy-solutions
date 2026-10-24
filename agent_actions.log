@@ -27,3 +27,5 @@ Format: [UTC timestamp] action
 [2026-10-24 20:52] Commit ea18a78 'Add layout, shared components, Home, Gas Market and Contact pages'; push attempted -> failed (no token).
 [2026-10-24 20:53] Created Gas Prices page: PriceExplorer (loading/empty/error/warnings, hub filter), PriceTable (sortable, aria-sort), PriceChart (SVG), src/lib/prices/sort.ts.
 [2026-10-24 20:53] Created tests: src/lib/prices/parse.test.ts, src/lib/contact/validation.test.ts; vitest.config.mts; next.config.ts outputFileTracingIncludes for data/.
+[2026-10-24 20:53] Commit 4ac6d32 'Add Gas Prices page, tests and config'; push attempted -> failed.
+[2026-10-24 20:54] Fixed PriceExplorer State typing (kind discriminator) and memo deps; vitest config uses import.meta.dirname. lint + typecheck clean, 38 tests pass.

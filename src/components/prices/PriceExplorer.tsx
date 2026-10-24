@@ -7,7 +7,10 @@ import { PriceTable } from "./PriceTable";
 import { PriceChart } from "./PriceChart";
 import styles from "./prices.module.css";
 
-type State = { kind: "loading" } | { kind: "error"; message: string } | Extract<PricesResponse, { status: "ok" }>;
+type Loaded = Extract<PricesResponse, { status: "ok" }>;
+type State = { kind: "loading" } | { kind: "error"; message: string } | ({ kind: "ready" } & Loaded);
+
+const NO_POINTS: Loaded["points"] = [];
 
 export function PriceExplorer() {
   const [state, setState] = useState<State>({ kind: "loading" });
@@ -18,7 +21,7 @@ export function PriceExplorer() {
     try {
       const res = await fetch("/api/prices", { cache: "no-store" });
       const body = (await res.json()) as PricesResponse;
-      if (body.status === "ok") setState(body);
+      if (body.status === "ok") setState({ kind: "ready", ...body });
       else setState({ kind: "error", message: body.message });
     } catch {
       setState({ kind: "error", message: "The price data could not be loaded. Check your connection and try again." });
@@ -31,7 +34,7 @@ export function PriceExplorer() {
     void load();
   }, [load]);
 
-  const points = "points" in state ? state.points : [];
+  const points = state.kind === "ready" ? state.points : NO_POINTS;
   const hubs = useMemo(() => hubsOf(points), [points]);
   const visible = useMemo(() => (hub === "all" ? points : points.filter((p) => p.hub === hub)), [points, hub]);
 
