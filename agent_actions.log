@@ -32,3 +32,5 @@ Format: [UTC timestamp] action
 [2026-10-24 20:55] Build OK. Fixed Turbopack whole-project tracing warning (turbopackIgnore in load.ts). Smoke-tested with npm start: all pages 200, /api/prices empty-ok, /api/contact 422 on invalid, 502 without SMTP config. Stopped server.
 [2026-10-24 20:55] Added .env.example (allowed in .gitignore) and full README (setup, env vars, data, scripts, deployment, placeholders list).
 [2026-10-24 20:55] Ran npm run check (lint, typecheck, tests, build): passed.
+[2026-10-24 20:55] Commit 02a6bcd 'Add README and .env.example'; push attempted -> failed, no token.
+[2026-10-24 20:55] Created git bundle and zip of branch work in /mnt/session/outputs for manual push.
