@@ -1,0 +1,13 @@
+# Gas price data file
+#
+# THIS FILE CONTAINS NO DATA YET. The Gas Prices page shows an "empty" state
+# until real, sourced rows are added below the header. Never add made-up figures.
+#
+# Format (see data/README.md):
+#   date           ISO date, YYYY-MM-DD
+#   hub            trading hub / market, e.g. TTF, THE, PEG, PSV, PVB, NBP
+#   price_eur_mwh  price in EUR/MWh, dot as decimal separator, no thousands separator
+#   source         publisher / dataset the figure was taken from
+#
+# Lines starting with "#" are comments.
+date,hub,price_eur_mwh,source
