@@ -6,7 +6,8 @@ import type { PricesResponse } from "./types";
 
 /** Path to the price file; override with PRICE_DATA_FILE (relative to project root). */
 export function priceFilePath(): string {
-  return path.resolve(process.cwd(), process.env.PRICE_DATA_FILE ?? "data/gas-prices.csv");
+  // data/ is included explicitly via outputFileTracingIncludes in next.config.ts.
+  return path.resolve(/*turbopackIgnore: true*/ process.cwd(), process.env.PRICE_DATA_FILE ?? "data/gas-prices.csv");
 }
 
 export async function loadPrices(): Promise<PricesResponse> {
