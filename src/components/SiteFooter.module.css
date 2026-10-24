@@ -1,0 +1,35 @@
+.footer {
+  background: var(--navy-900);
+  color: var(--gray-200);
+  padding: 2rem 0;
+  margin-top: 3rem;
+  font-size: 0.95rem;
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  gap: 1.5rem;
+}
+
+.footer a {
+  color: var(--teal-100);
+}
+
+.name {
+  color: var(--white);
+  font-weight: 700;
+  margin-top: 0;
+}
+
+.legal {
+  font-style: normal;
+}
+
+.links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.35rem;
+}

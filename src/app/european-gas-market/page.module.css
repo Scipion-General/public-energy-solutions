@@ -1,0 +1,61 @@
+.layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 60rem) {
+  .layout {
+    grid-template-columns: 16rem 1fr;
+  }
+
+  .toc {
+    position: sticky;
+    top: 1rem;
+    align-self: start;
+  }
+}
+
+.toc {
+  background: var(--gray-50);
+  border-left: 4px solid var(--teal-500);
+  padding: 1rem 1.25rem;
+  border-radius: var(--radius);
+}
+
+.toc ol {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+.tocTitle {
+  font-size: 1rem;
+  margin: 0 0 0.5rem;
+}
+
+.section {
+  margin-bottom: 2.5rem;
+  scroll-margin-top: 1rem;
+}
+
+.section h2 {
+  margin-top: 0;
+}
+
+.sourcesTitle {
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--gray-600);
+}
+
+.sources {
+  font-size: 0.95rem;
+}
+
+.note {
+  font-size: 0.9rem;
+  color: var(--gray-600);
+  border-top: 1px solid var(--gray-200);
+  padding-top: 1rem;
+}

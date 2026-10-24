@@ -1,69 +1,59 @@
-import Image from "next/image";
+import Link from "next/link";
+import { home } from "@/content/site";
+import { Placeholder } from "@/components/Placeholder";
 import styles from "./page.module.css";
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>
-            To get started, edit the{" "}
-            <code className={styles.code}>page.tsx</code> file.
+    <>
+      <section className={styles.hero} aria-labelledby="hero-title">
+        <div className="container">
+          <h1 id="hero-title" className={styles.heroTitle}>
+            {home.heroTitle}
           </h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+          <p className={styles.heroText}>{home.heroText}</p>
+          <div className={styles.actions}>
+            <Link href="/contact" className="button">
+              Contact us
+            </Link>
+            <Link href="/european-gas-market" className={styles.secondary}>
+              Learn about the European gas market
+            </Link>
+          </div>
         </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      <section className="section container" aria-labelledby="audiences-title">
+        <h2 id="audiences-title">Who we work with</h2>
+        <ul className={styles.cards}>
+          {home.audiences.map((a) => (
+            <li key={a.title} className={styles.card}>
+              <h3>{a.title}</h3>
+              <p>{a.text}</p>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section className={`section ${styles.alt}`} aria-labelledby="services-title">
+        <div className="container">
+          <h2 id="services-title">What we do</h2>
+          <Placeholder>Service descriptions below are draft wording and must be confirmed by PES.</Placeholder>
+          <ul className={styles.cards}>
+            {home.services.map((s) => (
+              <li key={s.title} className={styles.card}>
+                <h3>{s.title}</h3>
+                <p>{s.text}</p>
+              </li>
+            ))}
+          </ul>
         </div>
-      </main>
-    </div>
+      </section>
+
+      <section className="section container" aria-labelledby="clients-title">
+        <h2 id="clients-title">Clients and references</h2>
+        <Placeholder>Client references and testimonials will be added once approved by PES and the clients concerned.</Placeholder>
+      </section>
+    </>
   );
 }

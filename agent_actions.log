@@ -19,3 +19,8 @@ Format: [UTC timestamp] action
 [2026-10-24 20:50] Created src/content/site.ts (nav, home copy, placeholders) and src/content/gasMarket.ts (sourced educational content, EUR-Lex/ACER/EC/GIE/IEA links).
 [2026-10-24 20:50] Commit cdfbbcd "Scaffold Next.js app, price-file parser, contact validation and API routes".
 [2026-10-24 20:51] Created agent_actions.log (this file), backfilled with all previous actions.
+[2026-10-24 20:51] Created helper /tmp/log.sh (outside repo) to append entries to this log.
+[2026-10-24 20:52] Created globals.css (navy/white/teal tokens, skip link, focus styles), layout.tsx (Inter font, skip link, header/footer).
+[2026-10-24 20:52] Created components: SiteHeader (aria-current nav), SiteFooter (legal placeholder), Placeholder, PageHeader, ContactForm (+ CSS modules).
+[2026-10-24 20:52] Created pages: Home (/), European Gas Market, Contact.
+[2026-10-24 20:52] User asked for GitHub commits every ~2 min: committing locally often and attempting push each time (push blocked: no token).

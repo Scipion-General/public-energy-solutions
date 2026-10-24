@@ -1,0 +1,61 @@
+.hero {
+  background: linear-gradient(135deg, var(--navy-900), var(--navy-700));
+  color: var(--white);
+  padding: 4.5rem 0;
+  border-bottom: 4px solid var(--teal-500);
+}
+
+.heroTitle {
+  color: var(--white);
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  max-width: 40rem;
+  margin: 0 0 1rem;
+}
+
+.heroText {
+  font-size: 1.2rem;
+  max-width: 42rem;
+  color: var(--teal-100);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 1.5rem;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.secondary {
+  color: var(--white);
+  font-weight: 600;
+}
+
+.secondary:hover {
+  color: var(--teal-100);
+}
+
+.alt {
+  background: var(--gray-50);
+}
+
+.cards {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: 1.25rem;
+}
+
+.card {
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-top: 4px solid var(--teal-500);
+  border-radius: var(--radius);
+  padding: 1.25rem 1.5rem;
+}
+
+.card h3 {
+  margin-top: 0;
+}

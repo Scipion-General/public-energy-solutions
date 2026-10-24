@@ -1,0 +1,61 @@
+.header {
+  background: var(--navy-900);
+  color: var(--white);
+}
+
+.inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--white);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.brand:hover {
+  color: var(--teal-100);
+}
+
+.logo {
+  background: var(--teal-500);
+  color: var(--white);
+  border-radius: 6px;
+  padding: 0.15rem 0.45rem;
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+}
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.25rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.link {
+  color: var(--white);
+  text-decoration: none;
+  padding: 0.25rem 0;
+  border-bottom: 2px solid transparent;
+}
+
+.link:hover {
+  color: var(--teal-100);
+}
+
+.link[aria-current="page"] {
+  border-bottom-color: var(--teal-500);
+}

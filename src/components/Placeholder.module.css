@@ -1,0 +1,13 @@
+.placeholder {
+  border: 2px dashed var(--warning-border);
+  background: var(--warning-bg);
+  color: var(--text);
+  padding: 0.6rem 0.9rem;
+  border-radius: var(--radius);
+  margin: 0;
+}
+
+.dark {
+  background: transparent;
+  color: var(--gray-200);
+}

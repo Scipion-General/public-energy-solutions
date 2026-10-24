@@ -1,0 +1,95 @@
+.form {
+  max-width: 46rem;
+  display: grid;
+  gap: 1.1rem;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: 1.1rem;
+}
+
+.field {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.field label {
+  font-weight: 600;
+  color: var(--navy-900);
+}
+
+.field input,
+.field select,
+.field textarea {
+  font: inherit;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid var(--gray-600);
+  border-radius: var(--radius);
+  background: var(--white);
+  color: var(--text);
+}
+
+.field [aria-invalid="true"] {
+  border: 2px solid var(--danger);
+}
+
+.checkbox {
+  display: flex;
+  gap: 0.6rem;
+  align-items: flex-start;
+}
+
+.checkbox input {
+  width: 1.2rem;
+  height: 1.2rem;
+  margin-top: 0.25rem;
+}
+
+.checkbox label {
+  font-weight: 400;
+}
+
+.hint {
+  font-size: 0.9rem;
+  color: var(--gray-600);
+  margin: 0;
+}
+
+.error {
+  color: var(--danger);
+  font-size: 0.92rem;
+  margin: 0;
+  font-weight: 600;
+}
+
+.live p,
+.failure,
+.success {
+  margin: 0;
+}
+
+.success {
+  background: var(--success-bg);
+  color: var(--success);
+  border-left: 4px solid var(--success);
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius);
+}
+
+.failure {
+  background: var(--danger-bg);
+  color: var(--danger);
+  border-left: 4px solid var(--danger);
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius);
+}
+
+.honeypot {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
