@@ -1,0 +1,23 @@
+
+.approach {
+  border: 1px solid var(--warning-border);
+  background: var(--warning-bg);
+  color: var(--text);
+  padding: 1.5rem;
+  border-radius: var(--radius);
+  margin: 0;
+}
+
+.approach h2 {
+  margin: 0 0 1rem;
+}
+
+.approach p {
+  line-height: 1.7;
+  margin: 0 0 1rem;
+  max-width: 75ch;
+}
+
+.approach p:last-child {
+  margin-bottom: 0;
+}

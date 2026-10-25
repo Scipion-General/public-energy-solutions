@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { home } from "@/content/site";
 import { Placeholder } from "@/components/Placeholder";
+import { OurApproach } from "@/components/OurApproach";
 import styles from "./page.module.css";
 
 export default function HomePage() {
@@ -37,8 +38,8 @@ export default function HomePage() {
 
       <section className={`section ${styles.alt}`} aria-labelledby="services-title">
         <div className="container">
-          <h2 id="services-title">What we do</h2>
-          <Placeholder>Service descriptions below are draft wording and must be confirmed by PES.</Placeholder>
+          <h2 id="services-title">What we do : </h2>
+          <OurApproach>We provide tailored energy-market consultancy to public-sector organisations and businesses that lack in-house expertise in gas and power markets.</OurApproach>
           <ul className={styles.cards}>
             {home.services.map((s) => (
               <li key={s.title} className={styles.card}>
