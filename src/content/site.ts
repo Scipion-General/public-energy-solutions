@@ -5,7 +5,7 @@
 export const site = {
   name: "Public Energy Solutions",
   shortName: "PES",
-  tagline: "Independent energy-market insight for public bodies and mid-size companies",
+  tagline: "Independent Energy Market Consultancy for Public Bodies and Mid-Sized Companies",
   contactEmail: "contact@public-energy-solutions.com",
   nav: [
     { href: "/", label: "Home" },
@@ -20,22 +20,22 @@ export const site = {
 export const home = {
   heroTitle: "Clear guidance through Europe's energy markets",
   heroText:
-    "We help public-sector organisations and mid-size companies understand gas markets, " +
-    "structure their energy procurement and manage price risk.",
+    "We help public-sector organisations and mid-size companies understand European gas markets, " +
+    "structure their energy procurements and manage their price risk.",
   audiences: [
     {
-      title: "Public sector",
-      text: "Support for local authorities, hospitals, schools and other public bodies buying energy under public procurement rules.",
+      title: "Public Sector",
+      text: "Support, training and consultancy for local authorities, hospitals, schools and other public-sector organisations navigating energy procurement, wholesale market dynamics and public procurement requirements.",
     },
     {
-      title: "Mid-size companies",
-      text: "Practical market insight for businesses whose energy costs matter but who have no in-house trading desk.",
+      title: "Mid-Size Companies",
+      text: "Practical commodities-market insight and expert guidance for businesses looking to better understand energy price drivers, navigate market complexity and make more informed purchasing decisions — without the need for an in-house commodities trading team.",
     },
   ],
   /** Service descriptions — PLACEHOLDER wording, to be confirmed by PES. */
   services: [
-    { title: "Market briefings", text: "Plain-language explanations of how wholesale gas prices form and what drives them." },
-    { title: "Procurement strategy", text: "Help defining purchasing approaches, tender timing and contract structures." },
-    { title: "Price-risk awareness", text: "Understanding exposure to market prices and the options available to manage it." },
+    { title: "Commodities Market Insight", text: "Comprehensive analysis and clear explanations of wholesale gas price formation, the structure of the European gas market and the key factors shaping market movements. We help clients build a deeper understanding of the market, its underlying mechanisms and the forces influencing energy prices." },
+    { title: "Procurement Strategy", text: "Understand the drivers, mechanisms and technicalities behind European gas hubs and energy markets. We help you turn this knowledge into a practical advantage, strengthening your procurement strategy, refining purchasing decisions and developing more effective approaches to sourcing gas and power." },
+    { title: "Price-Risk Awareness", text: "Understanding exposure to market prices and the options available to manage it." },
   ],
 };
