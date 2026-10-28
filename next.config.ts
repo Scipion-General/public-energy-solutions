@@ -6,6 +6,7 @@ const nextConfig: NextConfig = {
   // Ship the price data file with the server bundle (serverless/standalone deploys).
   outputFileTracingIncludes: {
     "/api/prices": ["./data/**/*"],
+    "/api/ttf": ["./data/**/*"],
   },
 };
 

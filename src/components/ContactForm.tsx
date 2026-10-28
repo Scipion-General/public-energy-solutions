@@ -9,11 +9,19 @@ import {
   type ContactField,
 } from "@/lib/contact/validation";
 import { Placeholder } from "./Placeholder";
+import { site } from "@/content/site";
 import styles from "./ContactForm.module.css";
 
-type Status = { kind: "idle" } | { kind: "sending" } | { kind: "sent" } | { kind: "error"; message: string };
+type Status = { kind: "idle" } | { kind: "sending" } | { kind: "sent" } | { kind: "error"; message: string; mailto?: string };
 
 const FIELD_ORDER: ContactField[] = ["name", "email", "organisation", "organisationType", "subject", "message", "consent"];
+
+/** mailto: fallback so the visitor never loses what they typed. */
+function buildMailto(p: Record<string, unknown>): string {
+  const subject = String(p.subject ?? "");
+  const body = `${String(p.message ?? "")}\n\n${String(p.name ?? "")}${p.organisation ? `, ${String(p.organisation)}` : ""}`;
+  return `mailto:${site.contactEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+}
 
 export function ContactForm() {
   const [errors, setErrors] = useState<ContactErrors>({});
@@ -53,10 +61,14 @@ export function ContactForm() {
         setStatus({ kind: "idle" });
         focusFirstError(body.errors);
       } else {
-        setStatus({ kind: "error", message: body.message ?? "Your message could not be sent." });
+        setStatus({
+          kind: "error",
+          message: body.message ?? "Your message could not be sent.",
+          mailto: buildMailto(payload),
+        });
       }
     } catch {
-      setStatus({ kind: "error", message: "Network error: your message could not be sent." });
+      setStatus({ kind: "error", message: "Network error: your message could not be sent.", mailto: buildMailto(payload) });
     }
   }
 
@@ -85,7 +97,16 @@ export function ContactForm() {
         {status.kind === "sending" && <p>Sending…</p>}
       </div>
       <div role="alert">
-        {status.kind === "error" && <p className={styles.failure}>{status.message}</p>}
+        {status.kind === "error" && (
+          <div className={styles.failure}>
+            <p>{status.message}</p>
+            {status.mailto && (
+              <p>
+                <a href={status.mailto}>Open your email app with this message pre-filled</a>
+              </p>
+            )}
+          </div>
+        )}
         {errorCount > 0 && (
           <p className={styles.failure}>
             Please correct {errorCount} {errorCount === 1 ? "field" : "fields"} below.

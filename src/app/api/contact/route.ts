@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { validateContact } from "@/lib/contact/validation";
-import { MailerConfigError, sendContactEmail } from "@/lib/contact/mailer";
+import { MailerConfigError, MailerSendError, sendContactEmail } from "@/lib/contact/mailer";
+import { site } from "@/content/site";
 
 const MAX_BODY_BYTES = 20_000;
 
@@ -29,10 +30,16 @@ export async function POST(request: Request) {
     await sendContactEmail(result.data);
     return NextResponse.json({ ok: true });
   } catch (e) {
-    console.error("[contact] send failed:", e instanceof MailerConfigError ? e.message : e);
+    // Detailed cause goes to the server log only (never to the browser).
+    const kind = e instanceof MailerConfigError ? "configuration" : e instanceof MailerSendError ? "provider" : "unexpected";
+    console.error(`[contact] send failed (${kind} error):`, e instanceof Error ? e.message : e);
     return NextResponse.json(
-      { ok: false, message: "Your message could not be sent. Please try again later or email us directly." },
-      { status: 502 },
+      {
+        ok: false,
+        message: `Your message could not be sent. Please try again later or email us directly at ${site.contactEmail}.`,
+        fallbackEmail: site.contactEmail,
+      },
+      { status: kind === "configuration" ? 503 : 502 },
     );
   }
 }
