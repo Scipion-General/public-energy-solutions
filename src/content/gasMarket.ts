@@ -60,11 +60,10 @@ export const gasMarketSections: Section[] = [
     id: "supply",
     title: "Where Europe's gas comes from",
     paragraphs: [
-      "The EU produces only a small share of the gas it consumes and relies on imports by pipeline (notably from Norway and North Africa) and as liquefied natural gas (LNG) shipped from producers such as the United States and Qatar.",
-      "Following Russia's invasion of Ukraine in 2022, pipeline deliveries from Russia fell sharply and LNG became a much larger part of supply. The REPowerEU plan, presented by the European Commission in May 2022, set out measures to save energy, diversify supply and accelerate renewables in order to end dependence on Russian fossil fuels.",
+      "The EU produces only a small share of the gas it consumes, relying on imports via pipelines from countries like Norway and Algeria, as well as liquefied natural gas (LNG) shipped from the United States, Canada and Qatar.",
+      "Following Russia’s invasion of Ukraine in 2022, Russian pipeline deliveries fell sharply, and LNG became a much bigger part of the EU’s gas supply. These geopolitical tensions also sped up construction of the Wilhelmshaven LNG terminal in northern Germany.",
     ],
     sources: [
-      { label: "European Commission – REPowerEU", url: "https://commission.europa.eu/topics/energy/repowereu_en" },
       { label: "Eurostat – natural gas supply statistics", url: "https://ec.europa.eu/eurostat/statistics-explained/index.php?title=Natural_gas_supply_statistics" },
     ],
   },
@@ -72,34 +71,21 @@ export const gasMarketSections: Section[] = [
     id: "storage",
     title: "Storage and security of supply",
     paragraphs: [
-      "Underground storage balances seasonal demand: gas is typically injected in summer and withdrawn in winter. Regulation (EU) 2022/1032 introduced filling obligations for EU storage facilities ahead of each winter, and the rules have since been amended to give Member States more flexibility in meeting the target.",
-      "Storage filling levels are published daily on the Aggregated Gas Storage Inventory (AGSI) platform run by Gas Infrastructure Europe.",
+      "Underground storage helps balance seasonal demand: gas is typically injected during the summer gas season (April to September) and withdrawn during the winter gas season (October to March). European regulations set filling obligations for some EU storage facilities ahead of each winter, with stricter requirements in some countries than in others. The rules are flexible, allowing EU Member States to introduce specific incentives to meet their filling targets.",
+      "Storage filling levels are published daily on the Aggregated Gas Storage Inventory (AGSI) platform, run by Gas Infrastructure Europe.",
     ],
     sources: [
-      { label: "Regulation (EU) 2022/1032 – gas storage (EUR-Lex)", url: "https://eur-lex.europa.eu/eli/reg/2022/1032/oj" },
       { label: "GIE AGSI – gas storage transparency platform", url: "https://agsi.gie.eu/" },
     ],
   },
   {
     id: "crisis-measures",
-    title: "Emergency measures since 2022",
+    title: "What changed since 2022",
     paragraphs: [
-      "In response to the 2022 price crisis, the EU adopted temporary emergency measures. Regulation (EU) 2022/1369 set a framework for a coordinated voluntary reduction of gas demand, and Regulation (EU) 2022/2578 introduced a market correction mechanism intended to limit episodes of excessive prices. Several of these measures were time-limited; check their current status before relying on them.",
+      "In response to the 2022 energy price crisis, the EU adopted temporary emergency measures, including restrictions on Russian gas imports. This triggered a major shift in supply towards LNG, bringing the European TTF benchmark more closely in line with the Asian JKM benchmark. The sudden disruption of Russian gas flows also contributed to a gradual decoupling of gas and electricity prices.",
     ],
     sources: [
-      { label: "Regulation (EU) 2022/1369 – coordinated demand-reduction measures for gas (EUR-Lex)", url: "https://eur-lex.europa.eu/eli/reg/2022/1369/oj" },
-      { label: "Regulation (EU) 2022/2578 – market correction mechanism (EUR-Lex)", url: "https://eur-lex.europa.eu/eli/reg/2022/2578/oj" },
+      { label: "Regulation (EU) 2023/706 – on coordinated demand-reduction measures for gas", url: "https://eur-lex.europa.eu/eli/reg/2022/1369/2023-04-01" },
     ],
-  },
-  {
-    id: "price-drivers",
-    title: "What drives wholesale gas prices",
-    paragraphs: [
-      "Prices respond to the balance of supply and demand. Commonly cited drivers include weather and temperatures, storage levels, global LNG demand (particularly in Asia), supply outages and maintenance, the price of carbon allowances under the EU Emissions Trading System, demand from gas-fired power plants, and geopolitical events.",
-    ],
-    sources: [
-      { label: "ACER – market monitoring reports", url: "https://www.acer.europa.eu/monitoring/market-monitoring-report" },
-      { label: "International Energy Agency – Gas Market Reports", url: "https://www.iea.org/topics/natural-gas" },
-    ],
-  },
+  }
 ];
