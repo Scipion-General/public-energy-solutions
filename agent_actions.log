@@ -47,3 +47,8 @@ Format: [UTC timestamp] action
 [2026-10-28 21:17] Fixed TS1501 (regex s flag) in ttf.ts. Smoke-tested with temporary synthetic fixture /tmp/ttf-fixture.csv (outside repo, not committed): /api/ttf ok, /gas-prices 200.
 [2026-10-28 21:19] Updated .env.example, README (email setup/troubleshooting, TTF), data/README.md (ttf.csv format). npm run check passed.
 [2026-10-28 21:20] Local commit on fix/ttf-chart-and-contact (NOT pushed). Exported zip, bundle and patch to /mnt/session/outputs.
+[2026-10-28 21:30] git fetch origin: new commit d3183e4 "sketch of ttf prices" adds mock src/app/gas-prices/ttf.csv (date,hub,price; 16 rows). Rebased local branch fix/ttf-chart-and-contact onto origin/main (no conflicts).
+[2026-10-28 21:32] Added src/content/prices.ts (ttfData.file = src/app/gas-prices/ttf.csv, illustrative = true). loadTtf uses it (TTF_DATA_FILE still overrides); API returns illustrative flag.
+[2026-10-28 21:32] TtfChart: "Illustrative data" notice, chart description and source label mark mock data. next.config tracing includes the CSV. Updated README, data/README.md, .env.example paths.
+[2026-10-28 21:33] Added test parsing the repository ttf.csv. npm run check passed (73 tests). /api/ttf returns 16 points, no issues; CSV present in route .nft.json.
+[2026-10-28 21:34] Local commit (NOT pushed). Re-exported patches, bundle and zip to /mnt/session/outputs.

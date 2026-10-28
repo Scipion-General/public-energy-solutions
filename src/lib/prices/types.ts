@@ -35,6 +35,8 @@ export type TtfResponse =
       issues: ParseIssue[];
       source: string | null;
       unit: string;
+      /** True while the file is mock/illustrative data (src/content/prices.ts). */
+      illustrative: boolean;
       updatedAt: string;
     }
   | { status: "missing" }

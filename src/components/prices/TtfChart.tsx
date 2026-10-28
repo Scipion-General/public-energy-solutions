@@ -23,7 +23,7 @@ const toTime = (d: string) => Date.parse(`${d}T00:00:00Z`);
 const fmtPrice = new Intl.NumberFormat("en-GB", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 const fmtDate = (t: number) => new Date(t).toLocaleDateString("en-GB", { day: "2-digit", month: "short", year: "numeric", timeZone: "UTC" });
 
-/** TTF price vs date, read from data/ttf.csv via /api/ttf. */
+/** TTF price vs date, read from the file set in src/content/prices.ts via /api/ttf. */
 export function TtfChart() {
   const [state, setState] = useState<State>({ kind: "loading" });
   const [range, setRange] = useState<RangeId>("all");
@@ -75,7 +75,7 @@ export function TtfChart() {
       <section aria-labelledby="ttf-title">
         {heading}
         <div className={styles.state} role="status">
-          <p>No TTF data file has been published yet (expected at <code>data/ttf.csv</code>).</p>
+          <p>No TTF data file has been published yet (expected at <code>src/app/gas-prices/ttf.csv</code>).</p>
         </div>
       </section>
     );
@@ -93,12 +93,19 @@ export function TtfChart() {
       </section>
     );
 
-  const { unit, source, issues } = state;
+  const { unit, source, issues, illustrative } = state;
+  const notice = illustrative ? (
+    <p className={styles.illustrative} role="note">
+      <strong>Illustrative data:</strong> the TTF figures below are mock values used to demonstrate the chart. They are
+      not real market prices and must not be used for any decision.
+    </p>
+  ) : null;
 
   if (state.points.length === 0)
     return (
       <section aria-labelledby="ttf-title">
         {heading}
+        {notice}
         <div className={styles.state} role="status">
           <p>The TTF data file contains no valid rows yet.</p>
         </div>
@@ -139,6 +146,7 @@ export function TtfChart() {
   return (
     <section aria-labelledby="ttf-title" className={styles.ttf}>
       {heading}
+      {notice}
       <div className={styles.toolbar}>
         <div role="group" aria-label="Time range" className={styles.ranges}>
           {RANGES.map((r) => (
@@ -185,7 +193,7 @@ export function TtfChart() {
           onMouseLeave={() => setHover(null)}
         >
           <title id="ttf-chart-desc">
-            {`TTF gas price in ${unit} from ${first.date} to ${last.date}: ${visible.length} data points, from ${fmtPrice.format(first.price)} to ${fmtPrice.format(last.price)}, low ${fmtPrice.format(rawLo)}, high ${fmtPrice.format(rawHi)}.`}
+            {`${illustrative ? "Illustrative mock data, not real prices. " : ""}TTF gas price in ${unit} from ${first.date} to ${last.date}: ${visible.length} data points, from ${fmtPrice.format(first.price)} to ${fmtPrice.format(last.price)}, low ${fmtPrice.format(rawLo)}, high ${fmtPrice.format(rawHi)}.`}
           </title>
           {yTicks.map((v) => (
             <g key={v}>
@@ -226,7 +234,7 @@ export function TtfChart() {
             {hp ? `${hp.date}: ${fmtPrice.format(hp.price)} ${unit}` : "Hover over the chart to read a value."}
           </span>
           <span>
-            Source: {source ?? "not specified in the data file"}
+            Source: {illustrative ? "mock data (illustrative only)" : (source ?? "not specified in the data file")}
             {" · "}File updated {new Date(state.updatedAt).toLocaleDateString("en-GB")}
           </span>
         </figcaption>

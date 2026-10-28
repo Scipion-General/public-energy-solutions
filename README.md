@@ -9,7 +9,7 @@ energy-market consultancy for public-sector bodies and mid-size companies.
 |------------------------|----------------------------------------------------------------------------|
 | `/`                    | Home: audiences, services (draft wording), placeholders for references     |
 | `/european-gas-market` | Educational overview of the European gas market, every section sourced     |
-| `/gas-prices`          | TTF price-history chart from `data/ttf.csv` (time ranges, hover values, data table), plus prices by hub from `data/gas-prices.csv` (chart, sortable table, hub filter). Loading / empty / error states throughout |
+| `/gas-prices`          | TTF price-history chart from `src/app/gas-prices/ttf.csv` (time ranges, hover values, data table), plus prices by hub from `data/gas-prices.csv` (chart, sortable table, hub filter). Loading / empty / error states throughout |
 | `/contact`             | Contact form → email to `contact@public-energy-solutions.com`              |
 
 ## Stack
@@ -62,7 +62,7 @@ except `.env.example`.
 | `CONTACT_FROM_EMAIL` | yes      | Sender address, must be authorised by the provider                |
 | `CONTACT_TO_EMAIL`   | no       | Recipient, default `contact@public-energy-solutions.com`          |
 | `PRICE_DATA_FILE`    | no       | Hub price CSV, default `data/gas-prices.csv`                      |
-| `TTF_DATA_FILE`      | no       | TTF history CSV, default `data/ttf.csv`                           |
+| `TTF_DATA_FILE`      | no       | TTF history CSV, default `src/app/gas-prices/ttf.csv`                           |
 
 ## Contact form email: setup and troubleshooting
 
@@ -85,9 +85,13 @@ states the cause (missing variable, login refused, connection blocked, sender re
 
 ## Gas price data
 
-The site **never invents prices**. The TTF chart reads `data/ttf.csv` (format: see
+The site **never invents prices**. The TTF chart reads `src/app/gas-prices/ttf.csv` (format: see
 [`data/README.md`](data/README.md); semicolon/European exports are accepted). Until that file exists the
 page says no TTF data has been published.
+
+The file currently in the repo is **mock data**: the chart shows an "Illustrative data" notice while
+`illustrative: true` in `src/content/prices.ts`. Replace the file with real, sourced prices (add a
+`# source: ...` line) and set the flag to `false`. The path is also set in that file.
 
 For the hub table: `data/gas-prices.csv` ships with a header only, so the page shows its
 "No price data published yet" state. Add real, sourced rows following [`data/README.md`](data/README.md);

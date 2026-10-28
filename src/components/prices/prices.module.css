@@ -231,3 +231,11 @@
   overflow-y: auto;
   margin-top: 0.5rem;
 }
+
+.illustrative {
+  margin: 0;
+  border: 2px dashed var(--warning-border);
+  background: var(--warning-bg);
+  padding: 0.6rem 0.9rem;
+  border-radius: var(--radius);
+}

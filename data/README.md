@@ -34,10 +34,11 @@ Fields containing commas must be wrapped in double quotes (`""` escapes a quote)
 
 ---
 
-# TTF price history (`data/ttf.csv`)
+# TTF price history (`src/app/gas-prices/ttf.csv`)
 
-The **TTF price history** chart on the Gas Prices page reads **`data/ttf.csv`**
-(override with `TTF_DATA_FILE`). If the file does not exist, the page says so; nothing is invented.
+The **TTF price history** chart on the Gas Prices page reads **`src/app/gas-prices/ttf.csv`**
+(path set in `src/content/prices.ts`; override with `TTF_DATA_FILE`). The current file is mock data and is
+shown with an "Illustrative data" notice while `illustrative: true` in `src/content/prices.ts`. If the file does not exist, the page says so; nothing is invented.
 
 ## Accepted format
 

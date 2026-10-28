@@ -1,6 +1,9 @@
 import { describe, expect, it } from "vitest";
 import { parseDateCell, parsePriceCell, parseTtfCsv } from "./ttf";
 import { PriceFileFormatError } from "./parse";
+import { readFileSync } from "node:fs";
+import path from "node:path";
+import { ttfData } from "@/content/prices";
 
 // NOTE: numbers below are test fixtures only, not real market prices.
 
@@ -88,5 +91,15 @@ describe("cell parsers", () => {
     ["n/a", false, null],
   ])("parsePriceCell(%s, comma=%s) = %s", (input, comma, out) => {
     expect(parsePriceCell(input as string, comma as boolean)).toBe(out);
+  });
+});
+
+describe("repository TTF file (src/content/prices.ts → ttfData.file)", () => {
+  it("parses without issues, ignoring the extra hub column", () => {
+    const text = readFileSync(path.resolve(process.cwd(), ttfData.file), "utf8");
+    const r = parseTtfCsv(text);
+    expect(r.issues).toEqual([]);
+    expect(r.points.length).toBeGreaterThan(0);
+    expect(r.points.every((p) => /^\d{4}-\d{2}-\d{2}$/.test(p.date) && Number.isFinite(p.price))).toBe(true);
   });
 });

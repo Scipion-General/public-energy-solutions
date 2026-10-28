@@ -3,6 +3,7 @@ import { readFile, stat } from "node:fs/promises";
 import path from "node:path";
 import { parsePriceCsv } from "./parse";
 import { parseTtfCsv } from "./ttf";
+import { ttfData } from "@/content/prices";
 import type { PricesResponse, TtfResponse } from "./types";
 
 /** Path to the price file; override with PRICE_DATA_FILE (relative to project root). */
@@ -30,9 +31,9 @@ export async function loadPrices(): Promise<PricesResponse> {
   }
 }
 
-/** Path to the TTF history file; override with TTF_DATA_FILE (relative to project root). */
+/** Path to the TTF history file (see src/content/prices.ts); override with TTF_DATA_FILE. */
 export function ttfFilePath(): string {
-  return path.resolve(/*turbopackIgnore: true*/ process.cwd(), process.env.TTF_DATA_FILE ?? "data/ttf.csv");
+  return path.resolve(/*turbopackIgnore: true*/ process.cwd(), process.env.TTF_DATA_FILE || ttfData.file);
 }
 
 export async function loadTtf(): Promise<TtfResponse> {
@@ -40,7 +41,7 @@ export async function loadTtf(): Promise<TtfResponse> {
   try {
     const [text, info] = await Promise.all([readFile(file, "utf8"), stat(file)]);
     const parsed = parseTtfCsv(text);
-    return { status: "ok", ...parsed, updatedAt: info.mtime.toISOString() };
+    return { status: "ok", ...parsed, illustrative: ttfData.illustrative, updatedAt: info.mtime.toISOString() };
   } catch (e) {
     const err = e as NodeJS.ErrnoException;
     if (err.code === "ENOENT") return { status: "missing" };
