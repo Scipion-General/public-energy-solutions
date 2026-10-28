@@ -52,3 +52,4 @@ Format: [UTC timestamp] action
 [2026-10-28 21:32] TtfChart: "Illustrative data" notice, chart description and source label mark mock data. next.config tracing includes the CSV. Updated README, data/README.md, .env.example paths.
 [2026-10-28 21:33] Added test parsing the repository ttf.csv. npm run check passed (73 tests). /api/ttf returns 16 points, no issues; CSV present in route .nft.json.
 [2026-10-28 21:34] Local commit (NOT pushed). Re-exported patches, bundle and zip to /mnt/session/outputs.
+[2026-10-28 22:28] User asked to push branch fix/ttf-chart-and-contact; re-enabled push URL, git push -u origin fix/ttf-chart-and-contact -> failed: session has no GitHub authorization token. Push URL disabled again.
