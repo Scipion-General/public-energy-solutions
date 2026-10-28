@@ -39,7 +39,7 @@ export default function HomePage() {
       <section className={`section ${styles.alt}`} aria-labelledby="services-title">
         <div className="container">
           <h2 id="services-title">What we do : </h2>
-          <OurApproach>We provide tailored energy-market consultancy to public-sector organisations and businesses that lack in-house expertise in gas and power markets.</OurApproach>
+          <OurApproach />
           <ul className={styles.cards}>
             {home.services.map((s) => (
               <li key={s.title} className={styles.card}>

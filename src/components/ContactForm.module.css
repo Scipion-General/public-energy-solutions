@@ -93,3 +93,12 @@
   height: 1px;
   overflow: hidden;
 }
+
+.failure p {
+  margin: 0.25rem 0;
+}
+
+.failure a {
+  color: inherit;
+  font-weight: 600;
+}

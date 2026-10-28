@@ -35,3 +35,21 @@ Format: [UTC timestamp] action
 [2026-10-24 20:55] Commit 02a6bcd 'Add README and .env.example'; push attempted -> failed, no token.
 [2026-10-24 20:55] Created git bundle and zip of branch work in /mnt/session/outputs for manual push.
 [2026-10-24 20:57] User authorized write access in chat; retried git push -u origin work -> still failed: session has no GitHub authorization token.
+[2026-10-28 21:05] Cloned Scipion-General/public-energy-solutions (main @ 0897fa2) to /tmp/pes-main; disabled push URL (user: no commit/push to remote). Created local branch fix/ttf-chart-and-contact.
+[2026-10-28 21:05] Searched all branches and uploads for ttf.csv: not found.
+[2026-10-28 21:06] Found main fails to build: page.tsx passed children to OurApproach (accepts none). Fixed by rendering <OurApproach /> (component keeps its own text).
+[2026-10-28 21:08] Reproduced contact email with local SMTP test server: existing code sends correctly when configured -> failure is configuration/provider side.
+[2026-10-28 21:10] Mailer: added Resend HTTP API provider (MAIL_PROVIDER/RESEND_API_KEY), SMTP timeouts, explicit error causes in server log, looser SMTP_SECURE parsing, port validation.
+[2026-10-28 21:10] Contact API: 503 on config error / 502 on provider error, message includes fallback email. ContactForm: pre-filled mailto fallback link on failure.
+[2026-10-28 21:11] Added scripts/test-mail.mjs and npm script mail:test (checks env, login, sends test email).
+[2026-10-28 21:13] Added TTF chart: src/lib/prices/ttf.ts (tolerant CSV parser), loadTtf + /api/ttf, TtfChart component (ranges, stats, hover, data table, issues), wired into /gas-prices; next.config tracing for /api/ttf.
+[2026-10-28 21:15] Added tests ttf.test.ts, mailer.test.ts; vitest alias for server-only. 72 tests pass.
+[2026-10-28 21:17] Fixed TS1501 (regex s flag) in ttf.ts. Smoke-tested with temporary synthetic fixture /tmp/ttf-fixture.csv (outside repo, not committed): /api/ttf ok, /gas-prices 200.
+[2026-10-28 21:19] Updated .env.example, README (email setup/troubleshooting, TTF), data/README.md (ttf.csv format). npm run check passed.
+[2026-10-28 21:20] Local commit on fix/ttf-chart-and-contact (NOT pushed). Exported zip, bundle and patch to /mnt/session/outputs.
+[2026-10-28 21:30] git fetch origin: new commit d3183e4 "sketch of ttf prices" adds mock src/app/gas-prices/ttf.csv (date,hub,price; 16 rows). Rebased local branch fix/ttf-chart-and-contact onto origin/main (no conflicts).
+[2026-10-28 21:32] Added src/content/prices.ts (ttfData.file = src/app/gas-prices/ttf.csv, illustrative = true). loadTtf uses it (TTF_DATA_FILE still overrides); API returns illustrative flag.
+[2026-10-28 21:32] TtfChart: "Illustrative data" notice, chart description and source label mark mock data. next.config tracing includes the CSV. Updated README, data/README.md, .env.example paths.
+[2026-10-28 21:33] Added test parsing the repository ttf.csv. npm run check passed (73 tests). /api/ttf returns 16 points, no issues; CSV present in route .nft.json.
+[2026-10-28 21:34] Local commit (NOT pushed). Re-exported patches, bundle and zip to /mnt/session/outputs.
+[2026-10-28 22:28] User asked to push branch fix/ttf-chart-and-contact; re-enabled push URL, git push -u origin fix/ttf-chart-and-contact -> failed: session has no GitHub authorization token. Push URL disabled again.

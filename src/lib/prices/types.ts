@@ -26,3 +26,18 @@ export interface ParseResult {
 export type PricesResponse =
   | { status: "ok"; points: PricePoint[]; issues: ParseIssue[]; updatedAt: string | null }
   | { status: "error"; message: string };
+
+/** Shape returned by GET /api/ttf. */
+export type TtfResponse =
+  | {
+      status: "ok";
+      points: { date: string; price: number }[];
+      issues: ParseIssue[];
+      source: string | null;
+      unit: string;
+      /** True while the file is mock/illustrative data (src/content/prices.ts). */
+      illustrative: boolean;
+      updatedAt: string;
+    }
+  | { status: "missing" }
+  | { status: "error"; message: string };

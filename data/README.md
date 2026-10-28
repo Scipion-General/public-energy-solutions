@@ -31,3 +31,46 @@ Fields containing commas must be wrapped in double quotes (`""` escapes a quote)
    price feeds are commercially licensed — check terms before publishing).
 2. Append rows, keeping the `source` column accurate.
 3. Commit and redeploy (or replace the file on the server: it is read on each request).
+
+---
+
+# TTF price history (`src/app/gas-prices/ttf.csv`)
+
+The **TTF price history** chart on the Gas Prices page reads **`src/app/gas-prices/ttf.csv`**
+(path set in `src/content/prices.ts`; override with `TTF_DATA_FILE`). The current file is mock data and is
+shown with an "Illustrative data" notice while `illustrative: true` in `src/content/prices.ts`. If the file does not exist, the page says so; nothing is invented.
+
+## Accepted format
+
+The reader accepts the usual exports so you can drop a file in as-is:
+
+- **Delimiter:** comma, semicolon or tab (detected from the header).
+- **Header:** must contain a date column and a price column. Recognised names (case-insensitive):
+  - date: `date`, `day`, `trade date`, `trading date`, `delivery date`, `timestamp`, `time`, `datum`
+  - price: `price`, `price_eur_mwh`, `price (eur/mwh)`, `eur/mwh`, `close`, `close price`,
+    `settlement`, `settlement price`, `settle`, `last`, `value`, `ttf`, `prix`, `preis`
+  - A file with exactly two columns of other names is read as `date, price`.
+  - Other columns (open, high, volume...) are ignored.
+- **Dates:** `YYYY-MM-DD` (time part allowed), `YYYY/MM/DD`, or `DD/MM/YYYY`, `DD.MM.YYYY`, `DD-MM-YYYY`.
+  US `MM/DD/YYYY` is detected automatically when unambiguous (e.g. `01/31/2026`).
+- **Prices:** `31.25`, `1,234.5`; with `;` or tab delimiters a decimal comma (`31,25`, `1.234,5`) is
+  recognised. A `€` sign is ignored.
+- **Optional metadata comments** (shown on the page):
+  ```
+  # source: Name of the publisher / dataset
+  # unit: EUR/MWh
+  ```
+
+Invalid rows and duplicate dates are skipped and listed under the chart with their line numbers.
+
+## Minimal example (structure only - not real prices)
+
+```
+# source: <publisher, dataset name>
+date,price
+2026-01-02,<price>
+2026-01-05,<price>
+```
+
+Check that you are licensed to republish the figures (exchange data such as ICE Endex TTF
+settlement prices is usually commercially licensed).
