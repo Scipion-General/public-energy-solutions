@@ -190,7 +190,9 @@ export function ContactForm() {
           </label>
         </div>
         {fieldError("consent")}
-        <Placeholder>Link to the privacy notice to be added once it has been provided by PES.</Placeholder>
+        {/*  Remove if you want to add a marker */}
+        {/* <Placeholder>Link to the privacy notice to be added once it has been provided by PES.</Placeholder>  */}
+
       </div>
 
       <button type="submit" className="button" disabled={status.kind === "sending"}>

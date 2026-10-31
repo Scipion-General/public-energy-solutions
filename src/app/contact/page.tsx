@@ -13,11 +13,13 @@ export default function ContactPage() {
     <>
       <PageHeader title="Contact us">
         <p>
-          Tell us about your organisation and your question. You can also email{" "}
+          Tell us about your organisation and your question.
+          <br/>
+          You can also email : {" "}
           <a href={`mailto:${site.contactEmail}`} style={{ color: "inherit" }}>
             {site.contactEmail}
           </a>
-          .
+
         </p>
       </PageHeader>
       <div className="container section">
