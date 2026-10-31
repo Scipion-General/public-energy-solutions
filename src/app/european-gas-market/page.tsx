@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { PageHeader } from "@/components/PageHeader";
 import { GAS_MARKET_LAST_REVIEWED, gasMarketSections } from "@/content/gasMarket";
+import { ImageDialog } from "@/components/ImageDialog";
+import { images } from "@/content/images";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
@@ -40,6 +42,14 @@ export default function GasMarketPage() {
                     <li key={item}>{item}</li>
                   ))}
                 </ul>
+              )}
+              {s.figure && (
+                <ImageDialog
+                  {...images[s.figure.image]}
+                  buttonLabel={s.figure.buttonLabel}
+                  title={s.figure.title}
+                  caption={s.figure.caption}
+                />
               )}
               <h3 className={styles.sourcesTitle}>Sources</h3>
               <ul className={styles.sources}>

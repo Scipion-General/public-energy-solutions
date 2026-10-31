@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { PageHeader } from "@/components/PageHeader";
 import { ContactForm } from "@/components/ContactForm";
 import { site } from "@/content/site";
+import { FullLogo } from "@/components/FullLogo";
+import styles from "./page.module.css";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -22,8 +24,11 @@ export default function ContactPage() {
 
         </p>
       </PageHeader>
-      <div className="container section">
+      <div className={`container section ${styles.layout}`}>
         <ContactForm />
+        <aside className={styles.aside} aria-label="Public Energy Solutions">
+          <FullLogo />
+        </aside>
       </div>
     </>
   );

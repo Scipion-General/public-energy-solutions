@@ -1,0 +1,25 @@
+.layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+}
+
+/* On small screens the form comes first and the logo is not shown. */
+.aside {
+  display: none;
+}
+
+@media (min-width: 60rem) {
+  .layout {
+    grid-template-columns: minmax(0, 46rem) 1fr;
+    align-items: start;
+  }
+
+  .aside {
+    display: flex;
+    justify-content: center;
+    position: sticky;
+    top: 2rem;
+    padding-top: 4rem;
+  }
+}

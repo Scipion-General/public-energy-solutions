@@ -5,6 +5,7 @@
   --teal-600: #0f7c7a;
   --teal-500: #12918e;
   --teal-100: #e0f3f2;
+  --logo-blue: #227cd7; /* sampled from the PES logo swoosh */
   --white: #ffffff;
   --gray-50: #f6f8fb;
   --gray-200: #dbe2ea;
@@ -73,7 +74,9 @@ a:hover {
 }
 
 .section {
-  padding: 3rem 0;
+  /* block padding only, so it can be combined with .container (side padding) */
+  padding-top: 3rem;
+  padding-bottom: 3rem;
 }
 
 .visually-hidden {

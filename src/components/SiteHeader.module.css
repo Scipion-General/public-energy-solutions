@@ -3,14 +3,15 @@
   color: var(--white);
 }
 
-.inner {
+.header .inner {
+  /* .header prefix so the global .container padding does not override this */
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
 }
 
 .brand {
@@ -27,13 +28,21 @@
   color: var(--teal-100);
 }
 
+/* Logo badge: white rounded rectangle with a blue outline. */
 .logo {
-  background: var(--teal-500);
-  color: var(--white);
-  border-radius: 6px;
-  padding: 0.15rem 0.45rem;
-  font-size: 0.9rem;
-  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--white);
+  border: 2px solid var(--logo-blue);
+  border-radius: 10px;
+  padding: 0.2rem 0.5rem;
+  height: 3rem;
+}
+
+.logoImg {
+  height: 100%;
+  width: auto;
 }
 
 .nav {

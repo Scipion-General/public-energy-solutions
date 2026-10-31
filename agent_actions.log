@@ -53,3 +53,10 @@ Format: [UTC timestamp] action
 [2026-10-28 21:33] Added test parsing the repository ttf.csv. npm run check passed (73 tests). /api/ttf returns 16 points, no issues; CSV present in route .nft.json.
 [2026-10-28 21:34] Local commit (NOT pushed). Re-exported patches, bundle and zip to /mnt/session/outputs.
 [2026-10-28 22:28] User asked to push branch fix/ttf-chart-and-contact; re-enabled push URL, git push -u origin fix/ttf-chart-and-contact -> failed: session has no GitHub authorization token. Push URL disabled again.
+[2026-10-31 22:08] Fetched origin/main fff3416 (user added pes.png, pes_full_logo.png, european_gas_hubs2.png at repo root; contact page + ContactForm edits; typecheck fix). Created local branch feature/logos-and-hub-map from it.
+[2026-10-31 22:10] Moved the 3 PNGs to public/images/ (git mv, required for Next.js to serve them). Generated trimmed copies pes-mark.png and pes-full-logo-trimmed.png (transparent margins removed); originals kept.
+[2026-10-31 22:12] Header: replaced "PES" text badge with pes.png in a white rounded rectangle with blue (#227cd7, sampled from logo) border. Fixed header vertical padding being overridden by global .container.
+[2026-10-31 22:14] Added FullLogo component (white rounded card, blue border); Home hero right column, Contact page right column (hidden on mobile).
+[2026-10-31 22:16] Added ImageDialog component (native <dialog>, Esc/backdrop/close button, focus return, full-size link); European Gas Market hubs section shows "See the different gas VTPs on a map" button opening european_gas_hubs2.png. Section type gets optional figure; images/alt texts in src/content/images.ts.
+[2026-10-31 22:18] Removed unused Placeholder import in ContactForm (lint warning after user commented it out). Fixed .section overriding .container side padding (content touching screen edge on mobile).
+[2026-10-31 22:20] Visual check with Playwright screenshots (1280px, 390px) and dialog keyboard test. npm run check passed. Local commit on feature/logos-and-hub-map, NOT pushed; patch + zip exported.

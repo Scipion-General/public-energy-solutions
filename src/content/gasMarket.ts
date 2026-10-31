@@ -3,6 +3,8 @@
  * Every section cites primary/official sources. Review periodically:
  * regulation in this area changes frequently.
  */
+import type { images } from "./images";
+
 export const GAS_MARKET_LAST_REVIEWED = "2026-10-24";
 
 export interface Source {
@@ -15,6 +17,8 @@ export interface Section {
   title: string;
   paragraphs: string[];
   list?: string[];
+  /** Optional image shown in a pop-up window, opened by a button below the list. */
+  figure?: { image: keyof typeof images; buttonLabel: string; title: string; caption?: string };
   sources: Source[];
 }
 
@@ -52,6 +56,11 @@ export const gasMarketSections: Section[] = [
       "ZTP (Zeebrugge Trading Point) - Belgium",
       "NBP (National Balancing Point) - Great Britain (outside the EU)",
     ],
+    figure: {
+      image: "gasHubsMap",
+      buttonLabel: "See the different gas VTPs on a map",
+      title: "European gas virtual trading points (VTPs)",
+    },
     sources: [
       { label: "ENTSOG - The European Network of Transmission System Operators for Gas", url: "https://www.entsog.eu/" },
     ],

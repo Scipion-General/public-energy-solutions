@@ -1,0 +1,90 @@
+.trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font: inherit;
+  font-weight: 600;
+  color: var(--navy-900);
+  background: var(--white);
+  border: 2px solid var(--logo-blue);
+  border-radius: var(--radius);
+  padding: 0.55rem 1rem;
+  cursor: pointer;
+  margin: 0.25rem 0 1rem;
+}
+
+.trigger:hover {
+  background: var(--teal-100);
+}
+
+.icon {
+  color: var(--logo-blue);
+  flex: none;
+}
+
+.dialog {
+  width: min(64rem, 95vw);
+  max-height: 92vh;
+  padding: 0;
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgb(11 31 58 / 0.4);
+  overflow: auto;
+}
+
+.dialog::backdrop {
+  background: rgb(11 31 58 / 0.65);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.75rem 1rem 0.75rem 1.25rem;
+  background: var(--navy-900);
+  position: sticky;
+  top: 0;
+}
+
+.title {
+  color: var(--white);
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.close {
+  font: inherit;
+  font-size: 1.6rem;
+  line-height: 1;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  border: none;
+  background: var(--white);
+  color: var(--navy-900);
+  cursor: pointer;
+}
+
+.figure {
+  margin: 0;
+  padding: 1rem;
+}
+
+.img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 75vh;
+  object-fit: contain;
+}
+
+.caption {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem 1rem;
+  font-size: 0.9rem;
+  color: var(--gray-600);
+  margin-top: 0.75rem;
+}

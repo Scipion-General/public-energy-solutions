@@ -5,6 +5,29 @@
   border-bottom: 4px solid var(--teal-500);
 }
 
+.heroGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.heroLogo {
+  justify-self: start;
+  max-width: 18rem;
+}
+
+@media (min-width: 60rem) {
+  .heroGrid {
+    grid-template-columns: minmax(0, 1fr) 22rem;
+  }
+
+  .heroLogo {
+    justify-self: end;
+    max-width: 22rem;
+  }
+}
+
 .heroTitle {
   color: var(--white);
   font-size: clamp(2rem, 5vw, 3.2rem);

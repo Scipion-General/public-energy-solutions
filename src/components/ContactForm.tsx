@@ -8,7 +8,6 @@ import {
   type ContactErrors,
   type ContactField,
 } from "@/lib/contact/validation";
-import { Placeholder } from "./Placeholder";
 import { site } from "@/content/site";
 import styles from "./ContactForm.module.css";
 
@@ -190,7 +189,7 @@ export function ContactForm() {
           </label>
         </div>
         {fieldError("consent")}
-        {/*  Remove if you want to add a marker */}
+        {/*  Remove if you want to add a marker (and re-add: import { Placeholder } from "./Placeholder";) */}
         {/* <Placeholder>Link to the privacy notice to be added once it has been provided by PES.</Placeholder>  */}
 
       </div>

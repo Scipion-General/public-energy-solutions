@@ -2,25 +2,29 @@ import Link from "next/link";
 import { home } from "@/content/site";
 import { Placeholder } from "@/components/Placeholder";
 import { OurApproach } from "@/components/OurApproach";
+import { FullLogo } from "@/components/FullLogo";
 import styles from "./page.module.css";
 
 export default function HomePage() {
   return (
     <>
       <section className={styles.hero} aria-labelledby="hero-title">
-        <div className="container">
-          <h1 id="hero-title" className={styles.heroTitle}>
-            {home.heroTitle}
-          </h1>
-          <p className={styles.heroText}>{home.heroText}</p>
-          <div className={styles.actions}>
-            <Link href="/contact" className="button">
-              Contact us
-            </Link>
-            <Link href="/european-gas-market" className={styles.secondary}>
-              Learn about the European gas market
-            </Link>
+        <div className={`container ${styles.heroGrid}`}>
+          <div>
+            <h1 id="hero-title" className={styles.heroTitle}>
+              {home.heroTitle}
+            </h1>
+            <p className={styles.heroText}>{home.heroText}</p>
+            <div className={styles.actions}>
+              <Link href="/contact" className="button">
+                Contact us
+              </Link>
+              <Link href="/european-gas-market" className={styles.secondary}>
+                Learn about the European gas market
+              </Link>
+            </div>
           </div>
+          <FullLogo className={styles.heroLogo} eager />
         </div>
       </section>
 
